@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        let answer = '';
+        let repeat = 1;
+        s += ' ';
+        for (let i = 0; i < s.length - 1; i++) {
+          if (s[i] === s[i + 1]) {
+            repeat += 1;
+          } else {
+            answer += s[i];
+            if (repeat > 1) {
+              answer += String(repeat);
+              repeat = 1;
+            }
+          }
+        }
+        return answer;
+      }
+
+      let str = 'KKHSSSSSSSE';
+      console.log(solution(str));
+    </script>
+  </body>
+</html>
