@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(m, arr) {
+        let answer = 0;
+        const total = (m * (m + 1)) / 2;
+        let sum = 0;
+        let l = 0;
+        for (let r = 0; r < arr.length; r++) {
+          sum += arr[r];
+
+          while (sum > m) {
+            sum -= arr[l++];
+          }
+          answer += l;
+          console.log(l, r, answer);
+        }
+        return answer;
+      }
+
+      let a = [1, 3, 1, 2, 3];
+      console.log(solution(5, a));
+    </script>
+  </body>
+</html>

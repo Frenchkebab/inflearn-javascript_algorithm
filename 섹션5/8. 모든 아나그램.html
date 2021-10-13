@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function compareMaps(map1, map2) {}
+      function solution(s, t) {
+        let answer = 0;
+        const tLen = t.length;
+        const tMap = new Map();
+        const sMap = new Map();
+
+        for (let i = 0; i < t.length; i++) {
+          if (tMap.has(t[i])) tMap.set(t[i], tMap.get(t[i]) + 1);
+          else tMap.set(t[i], 1);
+        }
+
+        for (let i = 0; i < t.length; i++) {
+          if (sMap.has(t[i])) sMap.set(t[i], sMap.get(t[i]) + 1);
+          else sMap.set(t[i], 1);
+        }
+
+        for (let i = 0; i < s.length - (tLen - 1); i++) {
+          if (compareMaps(tMap, sMap)) answer++;
+
+          // 한 칸 빼주기
+          sMap.set(s[i], sMap.get(s[i]) - 1);
+
+          // 한 칸 더해주기
+          if (sMap.has(s[i + tLen])) sMap.set(s[i + tLen], sMap.get(s[tLen]) + 1);
+          else sMap.set(s[tLen], 1);
+        }
+
+        return answer;
+      }
+
+      let a = 'bacaAacba';
+      let b = 'abc';
+      console.log(solution(a, b));
+    </script>
+  </body>
+</html>

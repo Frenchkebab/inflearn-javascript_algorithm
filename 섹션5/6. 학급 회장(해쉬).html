@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        let answer;
+        let max = Number.MIN_SAFE_INTEGER;
+        let max_idx = 0;
+        const arr = Array(5).fill(0);
+        for (let x of s) {
+          arr[x.charCodeAt() - 'A'.charCodeAt()]++;
+        }
+        for (let i = 0; i < arr.length; i++) {
+          if (arr[i] > max) {
+            max = arr[i];
+            max_idx = i;
+          }
+        }
+        answer = String.fromCharCode(max_idx + 'A'.charCodeAt());
+        return answer;
+      }
+
+      let str = 'BACBACCACCBDEDE';
+      console.log(solution(str));
+    </script>
+  </body>
+</html>
+w

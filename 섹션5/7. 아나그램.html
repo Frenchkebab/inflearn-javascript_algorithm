@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(str1, str2) {
+        let answer;
+        const arr1 = Array(52).fill(0);
+        const arr2 = Array(52).fill(0);
+
+        for (let x of str1) {
+          arr1[x.charCodeAt() - 'A'.charCodeAt()]++;
+        }
+
+        for (let x of str2) {
+          arr2[x.charCodeAt() - 'A'.charCodeAt()]++;
+        }
+
+        if (JSON.stringify(arr1) === JSON.stringify(arr2)) answer = 'YES';
+        else answer = 'NO';
+
+        return answer;
+      }
+
+      let a = 'AbaAeCe';
+      let b = 'baeeACA';
+      console.log(solution(a, b));
+    </script>
+  </body>
+</html>
