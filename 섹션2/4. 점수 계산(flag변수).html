@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(arr) {
+        let answer = 0;
+        let flag = false;
+        let plus = 1;
+        for (let x of arr) {
+          if (x) {
+            // 1인 경우
+            if (flag) {
+              plus++;
+              answer += plus;
+              continue;
+            } else {
+              flag = true;
+              answer += plus;
+            }
+          } else {
+            // 0인 경우
+            flag = false;
+            plus = 1;
+          }
+        }
+        return answer;
+      }
+
+      let arr = [1, 0, 1, 1, 1, 0, 0, 1, 1, 0];
+      console.log(solution(arr));
+    </script>
+  </body>
+</html>
